@@ -13,7 +13,8 @@
   "main": "./src/server.js",
   "private": true,
   "scripts": {
-    "start": "pm2 start ecosystem.config.js --env production",
+    "start": "node ./dist/server.js",
+    "start-pm2": "pm2-runtime start ecosystem.config.js --env production",
     "serve": "node ./src/server.js",
     "dev": "cross-env NODE_ENV=development nodemon ./src/server.js",
     "test": "cross-env NODE_ENV=testing nodemon ./src/server.js",
