@@ -7,10 +7,11 @@ const FILTER_TYPE = Object.freeze({
 // Use FILTER_TYPE.REQ_PARAMS when getting results connected to the resource id specified as a path variable
 // Use FILTER_TYPE.REQ_USER for filtering results connected to the currently logged in user
 // it sets the filter on req.dbFilter field which is later accessed in the handlerFactory.getAll function
+// key defaults [fieldToSet]Id
 const setFindFilterFromRequest = (
   fieldToSet = '',
   reqField = FILTER_TYPE.REQ_PARAMS,
-  key = ''
+  key = `${fieldToSet}Id`
 ) => (req, res, next) => {
   const value = req[reqField][key];
   req.dbFilter = value ? { [fieldToSet]: value } : {};

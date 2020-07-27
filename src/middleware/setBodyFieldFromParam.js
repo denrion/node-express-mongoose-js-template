@@ -2,7 +2,8 @@
 // equal to specifed path variable (param) name
 // e.g used to connect a new resource with another resource
 // specified as a path variable in url when using nested routes
-const setBodyFieldFromParam = (fieldName = '', paramName = '') => (
+// defaults paramName to fieldNameId
+const setBodyFieldFromParam = (fieldName, paramName = `${fieldName}Id`) => (
   req,
   res,
   next
